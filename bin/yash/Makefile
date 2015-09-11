@@ -1,22 +1,10 @@
-TARGETS = yash
-CC = clang
-CFLAGS=-Wall -Wextra
+#	$NetBSD: Makefile,v 1.14 2006/12/14 20:09:36 he Exp $
+#	@(#)Makefile	8.1 (Berkeley) 6/2/93
 
-SRCDIR = ./src
+PROG=	yash
+SRCS=	yash.c
 
-BINDIR = ./bin
+LDADD+=	-lutil
+DPADD+=	${LIBUTIL}
 
-MKDIR = @mkdir -p $(BINDIR)
-SOURCES = $(SRCDIR)/yash.c 
-INCDIR = ./include
-BINARIES = $(SOURCES:$(SRCDIR)/%.c=%)
-all: $(TARGETS)
-$(BINARIES): $(SOURCES) 
-	$(MKDIR)
-	$(CC) $(CFLAGS) -I$(INCDIR) $< -o $(BINDIR)/$@
-
-clean:
-	rm -rf $(BINDIR)
-
-.PHONY: all clean
-
+.include <bsd.prog.mk>

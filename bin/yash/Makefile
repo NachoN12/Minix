@@ -2,7 +2,7 @@
 #	@(#)Makefile	8.1 (Berkeley) 6/2/93
 
 PROG=	yash
-SRCS=	yash.c
+SRCS=	yash.c yash.1
 
 LDADD+=	-lutil
 DPADD+=	${LIBUTIL}

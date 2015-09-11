@@ -7,7 +7,8 @@
 #include <string.h>
 #include <fcntl.h>
 #include <sys/wait.h>
-
+int parse(char *input, char *aux[], char **puntero_aux, int *flag_puntero);
+void ejecutar(char **aux, int flag, char **puntero_aux, char *input);
 
 int parse(char *input, char *aux[], char **puntero_aux, int *flag_puntero){
 
@@ -76,7 +77,7 @@ int parse(char *input, char *aux[], char **puntero_aux, int *flag_puntero){
 void ejecutar(char **aux, int flag, char **puntero_aux, char *input){
     pid_t pid, pid2;
     FILE *fp;
-    int flag2 = 0, cont, status1, status2;
+    int flag2 = 0, status1;
     char *aux2[30], *puntero_aux2 = NULL;
     int myPipe[2];
     if(flag == 3){
